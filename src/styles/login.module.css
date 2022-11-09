@@ -1,0 +1,35 @@
+@value makerWhite, selectBlack from '../common/colors.css';
+
+.login_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:40px;
+  background-color: makerWhite;
+}
+
+.login{
+  font-size:1.4rem;
+  color:#3f4150;
+  margin-bottom:0.9em;
+}
+
+.btn_google,
+.btn_github,
+.btn_email{
+  font-size:1rem;
+}
+
+.btn_google,
+.btn_github{
+  margin:0 0 0.5em;
+}
+
+.btn_google:hover,
+.btn_github:hover,
+.btn_email:hover{
+  background-color: selectBlack;
+  color:makerWhite;
+  border:none;
+}
