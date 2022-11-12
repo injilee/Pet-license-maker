@@ -20,7 +20,7 @@ class AuthService {
   getProvider(providerName){
     switch (providerName){
       case 'Google':
-        return this.googleProvider;
+      return this.googleProvider;
 
       case 'Github' :
       return this.githubProvider;

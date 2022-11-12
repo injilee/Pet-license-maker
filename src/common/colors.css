@@ -2,18 +2,12 @@
 @value makerWhite: white;
 @value makerLightGrey: #e8e7e6;
 @value makerLightPink: #ffeae8;
-<<<<<<< HEAD
-@value makerGrey: #f4f7fa;
-@value makerGreen: #1b5823;
-@value makerShadow: rgba(224, 226, 231, 0.75);
-@value makerColorful: linear-gradient(166deg, rgba(237, 193, 211, 1) 0%,rgba(212, 149, 161, 1) 60%, rgba(162, 63, 63, 1) 100%, rgba(127, 188, 242, 1) 100%);
-@value makerWheat: wheat;
-@value selectBlack: #1b1c32;
-=======
 @value makerGrey: #626262;
-@value makerGreen: #385461;
+@value makerGreen: #1b582b;
 @value makerPink: pink;
 @value makerShadow: rgba(217, 217, 217, 1);
 @value makerColorful: linear-gradient(166deg, rgba(237, 193, 211, 1) 0%,rgba(212, 149, 161, 1) 60%, rgba(162, 63, 63, 1) 100%, rgba(127, 188, 242, 1) 100%);
 @value makerWheat: wheat;
->>>>>>> 58b08c3e0f5c2a7b85735eb7cfe822dad1a2fc7a
+@value makerPlaceholder:#a8a8a8;
+@value selectBlack: #1b1c32;
+
