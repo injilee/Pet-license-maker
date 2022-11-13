@@ -1,0 +1,29 @@
+@value makerLightGrey, makerLightPink from '../common/colors.css';
+
+.maker_header {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: makerLightGrey;
+}
+
+.license_title {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.license_list {
+}
+
+.maker_footer {
+  display: flex;
+}
+
+.guardian_info {
+}
+
+.guardian_name {
+}
+
+.guardian_phone {
+}

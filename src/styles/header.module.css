@@ -3,8 +3,24 @@
 
 .title {
   font-family: 'Fugaz One', cursive;
-  font-size:2.5rem;
-  color:makerGreen;
-  margin:0 0 0.3em;
+  font-size: 2.5rem;
+  color: makerGreen;
+  margin: 0 0 0.3em;
 }
 
+.profile {
+  position: absolute;
+  top: 1.5em;
+  right: 1.5em;
+}
+
+.user_name {
+  position: relative;
+  margin-right: 0.7em;
+}
+
+.logout_btn {
+  position: relative;
+
+  cursor: pointer;
+}

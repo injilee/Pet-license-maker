@@ -1,9 +1,16 @@
 import styles from '../../styles/header.module.css';
 
-function Header() {
+function Header({ onLogout }) {
   return (
     <>
-    <h1 className={styles.title}>Pet License Maker</h1>
+      <h1 className={styles.title}>Pet License Maker</h1>
+      <div className={styles.profile}>
+        {true && (
+          <button onClick={onLogout} className={styles.logout_btn}>
+            Logout
+          </button>
+        )}
+      </div>
     </>
   );
 }

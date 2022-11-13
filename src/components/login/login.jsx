@@ -8,12 +8,15 @@ const Login = ({ authService }) => {
   const [check, checked] = useState(null);
   const navigate = useNavigate();
 
+  const goToMaker = (userId) => {
+    navigate('/maker', { state: { id: userId } });
+  };
+
   const onLogin = (event) => {
     console.log(event.currentTarget.textContent);
     authService
       .login(event.currentTarget.textContent) //
-      .then((result) => console.log(result))
-      .then(() => navigate('/maker'));
+      .then((result) => goToMaker(result.user.uid));
   };
 
   const onEmailLogin = (event) => {
