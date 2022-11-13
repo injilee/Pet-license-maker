@@ -1,44 +1,52 @@
 import styles from '../../styles/login.module.css';
 import Header from '../header/header';
 import Footer from '../footer/footer';
-import { GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom/dist';
 
-const Login = ({authService}) => {
+const Login = ({ authService }) => {
   const [check, checked] = useState(null);
-  
+  const navigate = useNavigate();
+
   const onLogin = (event) => {
-    console.log(event.currentTarget.textContent)
-    authService.login(event.currentTarget.textContent) // 
-    .then(console.log).then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-      console.log(token, user);
-    }).catch((error) => {
-      const errorMessage = error.message;
-      console.log(errorMessage);
-    })
-  }
+    console.log(event.currentTarget.textContent);
+    authService
+      .login(event.currentTarget.textContent) //
+      .then((result) => console.log(result))
+      .then(() => navigate('/maker'));
+  };
 
   const onEmailLogin = (event) => {
-    if(check === true){
+    if (check === true) {
       checked(false);
     } else {
       checked(true);
     }
-  } 
+  };
 
   return (
     <>
-    <Header />
-    <div className={styles.login_container}>
-      <strong className={styles.login}>Login</strong>
-      <button onClick={onLogin} className={styles.btn_google}>Google</button>
-      <button onClick={onLogin} className={styles.btn_github}>Github</button>
-      <button onClick={onEmailLogin} className={check === true ? `${styles.btn_email} ${styles.checked}` : `${styles.btn_email}`}>Email</button>
-      {check === true && <Footer />}
-    </div>
+      <Header />
+      <div className={styles.login_container}>
+        <strong className={styles.login}>Login</strong>
+        <button onClick={onLogin} className={styles.btn_google}>
+          Google
+        </button>
+        <button onClick={onLogin} className={styles.btn_github}>
+          Github
+        </button>
+        <button
+          onClick={onEmailLogin}
+          className={
+            check === true
+              ? `${styles.btn_email} ${styles.checked}`
+              : `${styles.btn_email}`
+          }
+        >
+          Email
+        </button>
+        {check === true && <Footer />}
+      </div>
     </>
   );
 };
