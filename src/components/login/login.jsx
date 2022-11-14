@@ -1,7 +1,7 @@
 import styles from '../../styles/login.module.css';
 import Header from '../header/header';
 import Footer from '../footer/footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom/dist';
 
 const Login = ({ authService }) => {
@@ -18,6 +18,13 @@ const Login = ({ authService }) => {
       .login(event.currentTarget.textContent) //
       .then((result) => goToMaker(result.user.uid));
   };
+
+  // 로그인 관련 상태가 변하면 콜백함수 호출
+  useEffect(() => {
+    authService.onAuthChanged((user) => {
+      user && goToMaker(user.id);
+    });
+  });
 
   const onEmailLogin = (event) => {
     if (check === true) {

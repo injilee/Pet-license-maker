@@ -5,7 +5,7 @@ function Header({ onLogout }) {
     <>
       <h1 className={styles.title}>Pet License Maker</h1>
       <div className={styles.profile}>
-        {true && (
+        {onLogout && (
           <button onClick={onLogout} className={styles.logout_btn}>
             Logout
           </button>

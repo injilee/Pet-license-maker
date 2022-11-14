@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../header/header';
 import styles from '../../styles/maker.module.css';
-import { useLocation } from 'react-router-dom/dist';
+import { useLocation, useNavigate } from 'react-router-dom/dist';
 
-const Maker = () => {
+const Maker = ({ authService }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   console.log(location);
+
+  const onLogout = () => {
+    authService.logout();
+  };
+
+  useEffect(() => {
+    authService.onAuthChanged((user) => {
+      if (!user) {
+        navigate('/');
+      }
+    });
+  });
+
   return (
     <>
-      <Header />
+      <Header onLogout={onLogout} />
       <section className={styles.maker_header}>
         {/* <h2 className={styles.license_title}>반려동물등록증</h2> */}
         <div className={styles.license_content}>
