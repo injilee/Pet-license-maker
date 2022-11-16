@@ -1,0 +1,22 @@
+@value makerBlack, makerPink from '../common/colors.css';
+@value mediaQuery from '../common/size.css';
+
+.edit_container {
+  width: 100%;
+  height: 100%;
+  flex-basis: 50%;
+  text-align: center;
+  background-color: makerPink;
+}
+
+.edit_title {
+  margin: 0;
+  padding: 0;
+  color: makerBlack;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .edit_container {
+    flex-basis: 100%;
+  }
+}

@@ -1,8 +1,8 @@
 import styles from '../../styles/login.module.css';
 import Header from '../header/header';
-import Footer from '../footer/footer';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom/dist';
+import EmailLogin from './email_login';
 
 const Login = ({ authService }) => {
   const [check, checked] = useState(null);
@@ -36,27 +36,29 @@ const Login = ({ authService }) => {
 
   return (
     <>
-      <Header />
-      <div className={styles.login_container}>
-        <strong className={styles.login}>Login</strong>
-        <button onClick={onLogin} className={styles.btn_google}>
-          Google
-        </button>
-        <button onClick={onLogin} className={styles.btn_github}>
-          Github
-        </button>
-        <button
-          onClick={onEmailLogin}
-          className={
-            check === true
-              ? `${styles.btn_email} ${styles.checked}`
-              : `${styles.btn_email}`
-          }
-        >
-          Email
-        </button>
-        {check === true && <Footer />}
-      </div>
+      <section className={styles.header}>
+        <Header />
+        <div className={styles.login_container}>
+          <strong className={styles.login}>Login</strong>
+          <button onClick={onLogin} className={styles.btn_google}>
+            Google
+          </button>
+          <button onClick={onLogin} className={styles.btn_github}>
+            Github
+          </button>
+          <button
+            onClick={onEmailLogin}
+            className={
+              check === true
+                ? `${styles.btn_email} ${styles.checked}`
+                : `${styles.btn_email}`
+            }
+          >
+            Email
+          </button>
+          {check === true && <EmailLogin />}
+        </div>
+      </section>
     </>
   );
 };

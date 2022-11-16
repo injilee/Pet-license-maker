@@ -2,11 +2,14 @@ import React, { useEffect } from 'react';
 import Header from '../header/header';
 import styles from '../../styles/maker.module.css';
 import { useLocation, useNavigate } from 'react-router-dom/dist';
+import Edit from '../edit/edit';
+import Preview from '../preview/preview';
+import Footer from '../footer/footer';
 
 const Maker = ({ authService }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
+  // console.log(location);
 
   const onLogout = () => {
     authService.logout();
@@ -22,9 +25,10 @@ const Maker = ({ authService }) => {
 
   return (
     <>
-      <Header onLogout={onLogout} />
-      <section className={styles.maker_header}>
-        {/* <h2 className={styles.license_title}>반려동물등록증</h2> */}
+      <section className={styles.maker}>
+        <Header />
+        <section className={styles.maker_header}>
+          {/* <h2 className={styles.license_title}>반려동물등록증</h2>
         <div className={styles.license_content}>
           <ul className={styles.license_list}>
             <li>이름 :</li>
@@ -42,7 +46,13 @@ const Maker = ({ authService }) => {
             <li className={styles.guardian_name}>보호자 : 인펫</li>
             <li className={styles.guardian_phone}>연락처 : 010-2222-3333</li>
           </ul>
+        </section> */}
         </section>
+        <div className={styles.make_warp}>
+          <Edit />
+          <Preview />
+        </div>
+        <Footer onLogout={onLogout} />
       </section>
     </>
   );

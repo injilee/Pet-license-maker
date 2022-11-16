@@ -1,10 +1,20 @@
 @value makerLightGrey, makerLightPink from '../common/colors.css';
+@value mediaQuery from '../common/size.css';
 
-.maker_header {
+.maker {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
+}
+
+.maker_header {
   background-color: makerLightGrey;
+}
+
+.make_warp {
+  display: flex;
+  flex: 1;
 }
 
 .license_title {
@@ -15,10 +25,6 @@
 .license_list {
 }
 
-.maker_footer {
-  display: flex;
-}
-
 .guardian_info {
 }
 
@@ -26,4 +32,10 @@
 }
 
 .guardian_phone {
+}
+
+@media screen and (max-width: mediaQuery) {
+  .make_warp {
+    flex-direction: column;
+  }
 }

@@ -1,26 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
 @value makerShadow, makerGreen from '../common/colors.css';
 
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6em 0;
+}
+
 .title {
   font-family: 'Fugaz One', cursive;
   font-size: 2.5rem;
   color: makerGreen;
-  margin: 0 0 0.3em;
-}
-
-.profile {
-  position: absolute;
-  top: 1.5em;
-  right: 1.5em;
+  margin: 0;
 }
 
 .user_name {
   position: relative;
   margin-right: 0.7em;
-}
-
-.logout_btn {
-  position: relative;
-
-  cursor: pointer;
 }
