@@ -1,13 +1,16 @@
 import React from 'react';
 import styles from '../../styles/footer.module.css';
 
-const Footer = ({ onLogout }) => {
+const Footer = ({ onLogout, user }) => {
   return (
     <div className={styles.profile}>
       {onLogout && (
-        <button onClick={onLogout} className={styles.logout_btn}>
-          Logout
-        </button>
+        <>
+          <span className={styles.userName}>Maker : {user}</span>
+          <button onClick={onLogout} className={styles.logout_btn}>
+            Logout
+          </button>
+        </>
       )}
     </div>
   );

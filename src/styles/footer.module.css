@@ -1,8 +1,14 @@
-@value makerShadow, makerWhite from '../common/colors.css';
+@value makerShadow, makerLightGrey, makerWhite from '../common/colors.css';
 
 .profile {
   display: flex;
+  justify-content: space-between;
   padding: 0.7em;
+  background-color: makerLightGrey;
+}
+.userName {
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .logout_btn {
@@ -10,7 +16,6 @@
   font-weight: 500;
   border: none;
   background-color: transparent;
-  margin: 0 auto;
   cursor: pointer;
 }
 

@@ -5,11 +5,13 @@ import { useLocation, useNavigate } from 'react-router-dom/dist';
 import Edit from '../edit/edit';
 import Preview from '../preview/preview';
 import Footer from '../footer/footer';
+import Cards from '../data/cards';
 
 const Maker = ({ authService }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  // console.log(location);
+  const card = new Cards().state.cards;
+  const user = location.state.name;
 
   const onLogout = () => {
     authService.logout();
@@ -27,32 +29,11 @@ const Maker = ({ authService }) => {
     <>
       <section className={styles.maker}>
         <Header />
-        <section className={styles.maker_header}>
-          {/* <h2 className={styles.license_title}>반려동물등록증</h2>
-        <div className={styles.license_content}>
-          <ul className={styles.license_list}>
-            <li>이름 :</li>
-            <li>동물등록번호 :</li>
-            <li>생년원일 :</li>
-            <li>주소 :</li>
-            <li>중성화(성별) :</li>
-            <li>특징 :</li>
-          </ul>
-        </div>
-        <section className={styles.maker_footer}>
-          <ul className={styles.guardian_info}>
-            <li className={styles.guardian_name}>보호자 : 인펫</li>
-            <li className={styles.guardian_phone}>연락처 : 010-2222-3333</li>
-            <li className={styles.guardian_name}>보호자 : 인펫</li>
-            <li className={styles.guardian_phone}>연락처 : 010-2222-3333</li>
-          </ul>
-        </section> */}
-        </section>
         <div className={styles.make_warp}>
           <Edit />
-          <Preview />
+          <Preview card={card} />
         </div>
-        <Footer onLogout={onLogout} />
+        <Footer onLogout={onLogout} user={user} />
       </section>
     </>
   );

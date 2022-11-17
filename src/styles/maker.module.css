@@ -8,30 +8,9 @@
   flex-direction: column;
 }
 
-.maker_header {
-  background-color: makerLightGrey;
-}
-
 .make_warp {
   display: flex;
   flex: 1;
-}
-
-.license_title {
-  font-size: 1.3rem;
-  text-align: center;
-}
-
-.license_list {
-}
-
-.guardian_info {
-}
-
-.guardian_name {
-}
-
-.guardian_phone {
 }
 
 @media screen and (max-width: mediaQuery) {

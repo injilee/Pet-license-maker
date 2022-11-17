@@ -8,15 +8,15 @@ const Login = ({ authService }) => {
   const [check, checked] = useState(null);
   const navigate = useNavigate();
 
-  const goToMaker = (userId) => {
-    navigate('/maker', { state: { id: userId } });
+  const goToMaker = (userId, userName) => {
+    navigate('/maker', { state: { id: userId, name: userName } });
   };
 
   const onLogin = (event) => {
     console.log(event.currentTarget.textContent);
     authService
       .login(event.currentTarget.textContent) //
-      .then((result) => goToMaker(result.user.uid));
+      .then((result) => goToMaker(result.user.uid, result.user.displayName));
   };
 
   // 로그인 관련 상태가 변하면 콜백함수 호출

@@ -4,16 +4,85 @@
 .preview_container {
   width: 100%;
   height: 100%;
-  flex-basis: 50%;
   text-align: center;
+  flex-basis: 50%;
   background-color: makerGreen;
 }
 
 .preview_title {
   width: 100%;
-  margin: 0;
+  margin: 0 0 0.7em 0;
   padding: 0;
   color: makerBlack;
+}
+
+.license_content {
+  display: flex;
+  flex: 1;
+  text-align: start;
+  margin-bottom: 1em;
+}
+
+.photo_wrap {
+  width: 11em;
+  height: auto;
+  border: 1px solid #000;
+  margin-right: 1em;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.preview_header {
+  max-width: 470px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 0.7em;
+  margin: 0 auto 2em;
+}
+
+.license_title {
+  margin: 0 0 0.6em 0;
+  padding: 0;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.license_list {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.license_footer {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.9rem;
+}
+
+.line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  margin-bottom: 0.6em;
+}
+
+.guardian_info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.guardian_name {
+}
+
+.guardian_phone {
 }
 
 @media screen and (max-width: mediaQuery) {
