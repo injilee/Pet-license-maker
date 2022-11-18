@@ -30,7 +30,7 @@ const Maker = ({ authService }) => {
       <section className={styles.maker}>
         <Header />
         <div className={styles.make_warp}>
-          <Edit />
+          <Edit card={card} />
           <Preview card={card} />
         </div>
         <Footer onLogout={onLogout} user={user} />
