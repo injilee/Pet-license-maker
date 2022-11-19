@@ -6,7 +6,9 @@ const Edit = ({ card }) => {
   return (
     <section className={styles.edit_container}>
       <h2 className={styles.edit_title}>Make</h2>
-      <EditForm card={card} />
+      {card.map((card) => (
+        <EditForm card={card} key={card.id} />
+      ))}
     </section>
   );
 };

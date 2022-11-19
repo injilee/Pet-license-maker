@@ -1,0 +1,6 @@
+.imageBtn {
+  flex-basis: 50%;
+  background-color: rgb(250, 149, 54);
+  border: none;
+  cursor: pointer;
+}

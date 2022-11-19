@@ -1,11 +1,12 @@
-@value makerBlack, makerGreen from '../common/colors.css';
+@value makerWhite, makerGreen from '../common/colors.css';
 @value mediaQuery from '../common/size.css';
 
 .preview_container {
   width: 100%;
   height: 100%;
-  text-align: center;
   flex-basis: 50%;
+  text-align: center;
+  padding: 0.3em;
   background-color: makerGreen;
 }
 
@@ -13,7 +14,7 @@
   width: 100%;
   margin: 0 0 0.7em 0;
   padding: 0;
-  color: makerBlack;
+  color: makerWhite;
 }
 
 @media screen and (max-width: mediaQuery) {

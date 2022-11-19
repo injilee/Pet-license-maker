@@ -1,0 +1,39 @@
+@value makerWhite from '../common/colors.css';
+
+.edit_form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.5em;
+  border: 2px solid makerWhite;
+}
+.edit_form:last-child {
+  margin-bottom: 2em;
+}
+
+.edit_input {
+  width: 100%;
+}
+
+.birth_gender_address {
+  display: flex;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+}
+
+.guardian_wrap {
+  display: flex;
+}
+.edit_guardian_input {
+  /* width: 100%; */
+  flex: 1 1 30%;
+}
+
+.fileInput {
+  display: flex;
+  height: 1.7em;
+}

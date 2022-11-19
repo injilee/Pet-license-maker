@@ -1,4 +1,4 @@
-@value makerBlack, makerPink from '../common/colors.css';
+@value makerWhite, makerGreen from '../common/colors.css';
 @value mediaQuery from '../common/size.css';
 
 .edit_container {
@@ -6,17 +6,22 @@
   height: 100%;
   flex-basis: 50%;
   text-align: center;
-  background-color: makerPink;
+  padding: 0.3em 3em;
+  background-color: makerGreen;
+  border-right: 2px dashed #fff;
+  border-bottom: none;
 }
 
 .edit_title {
-  margin: 0;
+  margin: 0 0 0.7em 0;
   padding: 0;
-  color: makerBlack;
+  color: makerWhite;
 }
 
 @media screen and (max-width: mediaQuery) {
   .edit_container {
     flex-basis: 100%;
+    border-right: none;
+    border-bottom: 2px dashed #fff;
   }
 }

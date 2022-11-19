@@ -29,8 +29,8 @@ const Card = ({ card }) => {
           <li>이름 : {name}</li>
           <li>동물등록번호 : {petNumber}</li>
           <li>생년원일 : {birth}</li>
-          <li>주소 : {address}</li>
           <li>성별(중성화) : {gender}</li>
+          <li>주소 : {address}</li>
           <li>특징 : {featurs}</li>
         </ul>
       </div>

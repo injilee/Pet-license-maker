@@ -1,0 +1,11 @@
+.delete {
+  flex-basis: 50%;
+  border: none;
+  padding: 0.2em;
+  background-color: rgb(113, 122, 248);
+  cursor: pointer;
+}
+
+.delete:hover {
+  background-color: rgb(81, 93, 255);
+}
