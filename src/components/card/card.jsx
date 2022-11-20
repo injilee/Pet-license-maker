@@ -20,7 +20,7 @@ const Card = ({ card }) => {
 
   return (
     <section className={styles.preview_header}>
-      <h2 className={styles.license_title}>반려동물등록증</h2>
+      {/* <h2 className={styles.license_title}>반려동물등록증</h2> */}
       <div className={styles.license_content}>
         <div className={styles.photo_wrap}>
           <img src={url} alt="profile images" className={styles.photo} />

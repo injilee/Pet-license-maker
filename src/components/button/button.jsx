@@ -3,7 +3,10 @@ import styles from '../../styles/button.module.css';
 
 const Button = ({ name, onClick }) => {
   return (
-    <button className={styles.delete} onClick={onClick}>
+    <button
+      className={name === 'Add' ? `${styles.add}` : `${styles.delete}`}
+      onClick={onClick}
+    >
       {name}
     </button>
   );

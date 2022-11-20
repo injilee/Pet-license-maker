@@ -1,6 +1,10 @@
 .imageBtn {
   flex-basis: 50%;
-  background-color: rgb(250, 149, 54);
+  background-color: rgb(252, 174, 72);
   border: none;
   cursor: pointer;
+}
+
+.imageBtn:hover {
+  background-color: rgb(255, 159, 70);
 }
