@@ -3,7 +3,7 @@ import styles from '../../styles/edit_form.module.css';
 import Button from '../button/button';
 import ImageFileInput from '../image-file-input/imageFileInput';
 
-const EditForm = ({ card }) => {
+const EditForm = ({ card, updateCard, onDelete }) => {
   const [optionValue, setValue] = useState(null);
   const {
     name,
@@ -19,11 +19,36 @@ const EditForm = ({ card }) => {
     guardianPhoneNum2,
   } = card;
 
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    onDelete(card);
+  };
 
-  const selectOption = (e) => {
-    const value = e.target.value;
-    setValue(value);
+  const selectOption = (selectValue) => {
+    switch (selectValue) {
+      case '0':
+        return setValue('');
+
+      case 'false':
+        return setValue('');
+
+      case 'true':
+        return setValue(selectValue);
+
+      default:
+        throw new Error(`not supported provider: ${selectValue}`);
+    }
+  };
+
+  const onChange = (event) => {
+    if (event.currentTarget === null) {
+      return;
+    }
+
+    const update = {
+      ...card,
+      [event.currentTarget.name]: event.currentTarget.value,
+    };
+    updateCard(update);
   };
 
   return (
@@ -34,18 +59,21 @@ const EditForm = ({ card }) => {
         name="name"
         defaultValue={name}
         placeholder="Name"
+        onChange={onChange}
       />
       <select onChange={selectOption}>
-        <option defaultValue="1">동물등록번호 없음</option>
-        <option defaultValue="2">동물등록번호 있음</option>
+        <option value="0">동물등록번호 여부</option>
+        <option value="false">없음</option>
+        <option value="true">있음</option>
       </select>
 
-      {optionValue === '동물등록번호 있음' ? (
+      {optionValue === 'true' ? (
         <input
           className={styles.edit_input}
           type="text"
           name="petNumber"
           defaultValue={petNumber}
+          onChange={onChange}
         />
       ) : (
         <input
@@ -55,6 +83,7 @@ const EditForm = ({ card }) => {
           defaultValue={petNumber}
           placeholder="동물등록번호"
           disabled
+          onChange={onChange}
         />
       )}
       <div className={styles.birth_gender_address}>
@@ -64,6 +93,7 @@ const EditForm = ({ card }) => {
           name="birth"
           defaultValue={birth}
           placeholder="생년월일"
+          onChange={onChange}
         />
         <input
           className={styles.edit_input}
@@ -71,6 +101,7 @@ const EditForm = ({ card }) => {
           name="gender"
           defaultValue={gender}
           placeholder="성별(중성화여부)"
+          onChange={onChange}
         />
         <input
           className={styles.edit_input}
@@ -78,6 +109,7 @@ const EditForm = ({ card }) => {
           name="address"
           defaultValue={address}
           placeholder="주소"
+          onChange={onChange}
         />
       </div>
       <textarea
@@ -87,6 +119,7 @@ const EditForm = ({ card }) => {
         maxLength={65}
         defaultValue={featurs}
         placeholder="특징"
+        onChange={onChange}
       ></textarea>
 
       <div className={styles.guardian_wrap}>
@@ -96,6 +129,7 @@ const EditForm = ({ card }) => {
           name="guardian1"
           defaultValue={guardian1}
           placeholder="보호자 성함"
+          onChange={onChange}
         />
         <input
           className={styles.edit_guardian_input}
@@ -103,6 +137,7 @@ const EditForm = ({ card }) => {
           name="guardianPhoneNum1"
           defaultValue={guardianPhoneNum1}
           placeholder="보호자 전화번호"
+          onChange={onChange}
         />
       </div>
       <div className={styles.guardian_wrap}>
@@ -112,6 +147,7 @@ const EditForm = ({ card }) => {
           name="guardian2"
           defaultValue={guardian2}
           placeholder="보호자 성함"
+          onChange={onChange}
         />
         <input
           className={styles.edit_guardian_input}
@@ -119,6 +155,7 @@ const EditForm = ({ card }) => {
           name="guardianPhoneNum2"
           defaultValue={guardianPhoneNum2}
           placeholder="보호자 전화번호"
+          onChange={onChange}
         />
       </div>
       <div className={styles.fileInput}>

@@ -4,7 +4,7 @@ import Button from '../button/button';
 import ImageFileInput from '../image-file-input/imageFileInput';
 
 const EditAddForm = ({ addCard }) => {
-  const [optionValue, setValue] = useState(null);
+  const [optionValue, setValue] = useState('');
   const formRef = createRef();
   const nameRef = createRef();
   const petNumberRef = createRef();
@@ -18,9 +18,20 @@ const EditAddForm = ({ addCard }) => {
   const guardianPhoneNum2Ref = createRef();
   const petNumberOptionRef = createRef();
 
-  const selectOption = (e) => {
-    const value = e.target.value;
-    setValue(value);
+  const selectOption = (selectValue) => {
+    switch (selectValue) {
+      case '0':
+        return '';
+
+      case 'false':
+        return '';
+
+      case 'true':
+        return setValue(selectValue);
+
+      default:
+        throw new Error(`not supported provider: ${selectValue}`);
+    }
   };
 
   const onSubmit = (event) => {
@@ -54,16 +65,16 @@ const EditAddForm = ({ addCard }) => {
         placeholder="Name"
       />
       <select
-        onChange={selectOption}
+        onChange={(value) => selectOption(value.target.value)}
         ref={petNumberOptionRef}
         defaultValue="petNumer"
       >
-        <option defaultValue="1">동물등록번호 여부</option>
-        <option defaultValue="2">없음</option>
-        <option defaultValue="3">있음</option>
+        <option value="0">동물등록번호 여부</option>
+        <option value="false">없음</option>
+        <option value="true">있음</option>
       </select>
 
-      {optionValue === '있음' ? (
+      {optionValue === 'true' ? (
         <input
           className={styles.edit_input}
           type="text"

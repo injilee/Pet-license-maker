@@ -7,8 +7,8 @@ import Preview from '../preview/preview';
 import Footer from '../footer/footer';
 
 const Maker = ({ authService }) => {
-  const [cards, setCards] = useState([
-    {
+  const [cards, setCards] = useState({
+    1: {
       id: 1,
       name: '먼지',
       petNumber: 153435,
@@ -22,7 +22,7 @@ const Maker = ({ authService }) => {
       guardian2: '이인지',
       guardianPhoneNum2: '010-2610-1667',
     },
-    {
+    2: {
       id: 2,
       name: '요미',
       petNumber: 476487,
@@ -36,7 +36,7 @@ const Maker = ({ authService }) => {
       guardian2: '이인지',
       guardianPhoneNum2: '010-2610-1667',
     },
-  ]);
+  });
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -54,10 +54,16 @@ const Maker = ({ authService }) => {
     });
   });
 
-  const addCard = (cardUpdate) => {
-    const updateState = [...cards, cardUpdate];
-    setCards(updateState);
-    console.log(updateState);
+  const addAndUpdateCard = (update) => {
+    const updated = { ...cards };
+    updated[update.id] = update;
+    setCards(updated);
+  };
+
+  const onDelete = (update) => {
+    const updated = { ...cards };
+    delete updated[update.id];
+    setCards(updated);
   };
 
   return (
@@ -65,8 +71,13 @@ const Maker = ({ authService }) => {
       <section className={styles.maker}>
         <Header />
         <div className={styles.make_warp}>
-          <Edit card={cards} addCard={addCard} />
-          <Preview card={cards} addCard={addCard} />
+          <Edit
+            card={cards}
+            addCard={addAndUpdateCard}
+            updateCard={addAndUpdateCard}
+            onDelete={onDelete}
+          />
+          <Preview card={cards} />
         </div>
         <Footer onLogout={onLogout} user={user} />
       </section>
