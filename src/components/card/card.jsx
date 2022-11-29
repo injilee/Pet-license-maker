@@ -27,7 +27,7 @@ const Card = ({ card }) => {
         </div>
         <ul className={styles.license_list}>
           <li>이름 : {name}</li>
-          <li>동물등록번호 : {petNumber}</li>
+          {petNumber === '' ? '' : <li>동물등록번호 : {petNumber}</li>}
           <li>생년원일 : {birth}</li>
           <li>성별(중성화) : {gender}</li>
           <li>주소 : {address}</li>

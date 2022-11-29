@@ -61,7 +61,7 @@ const EditForm = ({ card, updateCard, onDelete }) => {
         placeholder="Name"
         onChange={onChange}
       />
-      <select onChange={selectOption}>
+      <select onChange={(value) => selectOption(value.target.value)}>
         <option value="0">동물등록번호 여부</option>
         <option value="false">없음</option>
         <option value="true">있음</option>
