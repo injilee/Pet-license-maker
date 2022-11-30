@@ -8,3 +8,7 @@
 .imageBtn:hover {
   background-color: rgb(255, 159, 70);
 }
+
+.input {
+  display: none;
+}

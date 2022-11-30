@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import styles from '../../styles/edit_form.module.css';
 import Button from '../button/button';
-import ImageFileInput from '../image-file-input/imageFileInput';
 
-const EditForm = ({ card, updateCard, onDelete }) => {
+const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
   const [optionValue, setValue] = useState(null);
   const {
     name,
@@ -12,12 +11,23 @@ const EditForm = ({ card, updateCard, onDelete }) => {
     gender,
     address,
     featurs,
-    imageUrl,
     guardian1,
     guardianPhoneNum1,
     guardian2,
     guardianPhoneNum2,
+    fileName,
+    fileUrl,
   } = card;
+
+  const onFileChange = (file) => {
+    console.log(file);
+    updateCard({
+      ...card,
+      fileName: file.name,
+      fileUrl: file.url,
+    });
+    console.log(card);
+  };
 
   const onSubmit = () => {
     onDelete(card);
@@ -159,7 +169,7 @@ const EditForm = ({ card, updateCard, onDelete }) => {
         />
       </div>
       <div className={styles.fileInput}>
-        <ImageFileInput />
+        <FileInput onFileChange={onFileChange} name={name} />
         <Button name="Delete" onClick={onSubmit} />
       </div>
     </form>

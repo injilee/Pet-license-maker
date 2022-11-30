@@ -1,10 +1,11 @@
 import React, { createRef, useState } from 'react';
 import styles from '../../styles/edit_add_form.module.css';
 import Button from '../button/button';
-import ImageFileInput from '../image-file-input/imageFileInput';
 
-const EditAddForm = ({ addCard }) => {
+const EditAddForm = ({ FileInput, addCard }) => {
   const [optionValue, setValue] = useState('');
+  const [file, setFile] = useState({ fileName: null, fileUrl: null });
+
   const formRef = createRef();
   const nameRef = createRef();
   const petNumberRef = createRef();
@@ -34,6 +35,10 @@ const EditAddForm = ({ addCard }) => {
     }
   };
 
+  const onFileChange = (file) => {
+    setFile({ fileName: file.name, fileUrl: file.url });
+  };
+
   const onSubmit = (event) => {
     event.preventDefault();
     const card = {
@@ -48,6 +53,8 @@ const EditAddForm = ({ addCard }) => {
       guardianPhoneNum1: guardianPhoneNum1Ref.current.value || '',
       guardian2: guardian2Ref.current.value || '',
       guardianPhoneNum2: guardianPhoneNum2Ref.current.value || '',
+      fileName: file.fileName || '',
+      fileUrl: file.fileUrl || '',
     };
 
     formRef.current.reset();
@@ -156,7 +163,7 @@ const EditAddForm = ({ addCard }) => {
         />
       </div>
       <div className={styles.fileInput}>
-        <ImageFileInput />
+        <FileInput onFileChange={onFileChange} />
         <Button name="Add" onClick={onSubmit} />
       </div>
     </form>

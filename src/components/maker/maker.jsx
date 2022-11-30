@@ -6,7 +6,7 @@ import Edit from '../edit/edit';
 import Preview from '../preview/preview';
 import Footer from '../footer/footer';
 
-const Maker = ({ authService }) => {
+const Maker = ({ FileInput, authService }) => {
   const [cards, setCards] = useState({
     1: {
       id: 1,
@@ -16,7 +16,6 @@ const Maker = ({ authService }) => {
       address: '서울특별시 관악구',
       gender: '여아(중성화)',
       featurs: '코리안 숏헤어 + 아메리칸 숏헤어(믹스)',
-      imageUrl: null,
       guardian1: '이인지',
       guardianPhoneNum1: '010-2610-1667',
       guardian2: '이인지',
@@ -30,7 +29,6 @@ const Maker = ({ authService }) => {
       address: '경기도 성남시',
       gender: '남아(중성화)',
       featurs: '치즈 코리안 숏헤어',
-      imageUrl: null,
       guardian1: '이인지',
       guardianPhoneNum1: '010-2610-1667',
       guardian2: '이인지',
@@ -72,6 +70,7 @@ const Maker = ({ authService }) => {
         <Header />
         <div className={styles.make_warp}>
           <Edit
+            FileInput={FileInput}
             card={cards}
             addCard={addAndUpdateCard}
             updateCard={addAndUpdateCard}

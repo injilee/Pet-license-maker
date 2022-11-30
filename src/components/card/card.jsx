@@ -10,13 +10,14 @@ const Card = ({ card }) => {
     address,
     gender,
     featurs,
-    imageUrl,
+    fileName,
+    fileUrl,
     guardian1,
     guardianPhoneNum1,
     guardian2,
     guardianPhoneNum2,
   } = card;
-  const url = imageUrl || DEFALUT_IMAGE;
+  const url = fileUrl || DEFALUT_IMAGE;
 
   return (
     <section className={styles.preview_header}>
