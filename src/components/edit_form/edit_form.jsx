@@ -16,7 +16,6 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
     guardian2,
     guardianPhoneNum2,
     fileName,
-    fileUrl,
   } = card;
 
   const onFileChange = (file) => {
@@ -169,7 +168,7 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
         />
       </div>
       <div className={styles.fileInput}>
-        <FileInput onFileChange={onFileChange} name={name} />
+        <FileInput onFileChange={onFileChange} name={fileName} />
         <Button name="Delete" onClick={onSubmit} />
       </div>
     </form>

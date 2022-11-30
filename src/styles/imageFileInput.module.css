@@ -1,4 +1,6 @@
 .imageBtn {
+  width: 100%;
+  height: 100%;
   flex-basis: 50%;
   background-color: rgb(252, 174, 72);
   border: none;
@@ -11,4 +13,23 @@
 
 .input {
   display: none;
+}
+
+.loading {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: 2px solid rgb(255, 178, 178);
+  border-top: 3px solid rgb(247, 86, 86);
+  animation: turn 2s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes turn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
