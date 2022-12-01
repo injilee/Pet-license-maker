@@ -1,9 +1,16 @@
-import React from 'react';
 import styles from '../../styles/edit.module.css';
 import EditAddForm from '../edit_add_form/edit_add_form';
 import EditForm from '../edit_form/edit_form';
 
-const Edit = ({ FileInput, card, addCard, updateCard, onDelete }) => {
+const Edit = ({
+  FileInput,
+  card,
+  addCard,
+  updateCard,
+  onDelete,
+  onFileChange,
+  file,
+}) => {
   return (
     <section className={styles.edit_container}>
       <h2 className={styles.edit_title}>Make</h2>
@@ -16,7 +23,13 @@ const Edit = ({ FileInput, card, addCard, updateCard, onDelete }) => {
           onDelete={onDelete}
         />
       ))}
-      <EditAddForm addCard={addCard} FileInput={FileInput} />
+      <EditAddForm
+        addCard={addCard}
+        FileInput={FileInput}
+        card={card}
+        onFileChange={onFileChange}
+        file={file}
+      />
     </section>
   );
 };

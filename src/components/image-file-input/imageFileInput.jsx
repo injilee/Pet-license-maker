@@ -13,8 +13,9 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
     setLoading(true);
     const uploaded = await imageUploader.upload(event.target.files[0]);
     onFileChange({
-      name: uploaded.original_filename,
-      url: uploaded.url,
+      name: uploaded.data.original_filename,
+      url: uploaded.data.url,
+      public_id: uploaded.data.public_id,
     });
     setLoading(false);
   };

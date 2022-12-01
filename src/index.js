@@ -25,6 +25,7 @@ root.render(
       authService={authService}
       FileInput={FileInput}
       cardRepository={cardRepository}
+      imageUploader={imageUploader}
     />
   </React.StrictMode>,
 );

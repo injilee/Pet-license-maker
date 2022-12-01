@@ -2,9 +2,8 @@ import React, { createRef, useState } from 'react';
 import styles from '../../styles/edit_add_form.module.css';
 import Button from '../button/button';
 
-const EditAddForm = ({ FileInput, addCard }) => {
+const EditAddForm = ({ FileInput, addCard, onFileChange, file }) => {
   const [optionValue, setValue] = useState('');
-  const [file, setFile] = useState({ fileName: null, fileUrl: null });
 
   const formRef = createRef();
   const nameRef = createRef();
@@ -33,10 +32,6 @@ const EditAddForm = ({ FileInput, addCard }) => {
       default:
         throw new Error(`not supported provider: ${selectValue}`);
     }
-  };
-
-  const onFileChange = (file) => {
-    setFile({ fileName: file.name, fileUrl: file.url });
   };
 
   const onSubmit = (event) => {

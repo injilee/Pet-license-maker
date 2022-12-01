@@ -7,4 +7,4 @@ cloudinary.config({
   preset_name: process.env.REACT_APP_PRESET_NAME,
 });
 
-export const cloudinaryConfig = cloudinary;
+export default cloudinary;

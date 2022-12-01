@@ -3,7 +3,7 @@ import Login from './components/login/login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Maker from './components/maker/maker';
 
-function App({ FileInput, authService, cardRepository }) {
+function App({ FileInput, authService, cardRepository, imageUploader }) {
   return (
     <BrowserRouter>
       <Routes>
@@ -16,6 +16,7 @@ function App({ FileInput, authService, cardRepository }) {
               authService={authService}
               FileInput={FileInput}
               cardRepository={cardRepository}
+              imageUploader={imageUploader}
             />
           }
         />

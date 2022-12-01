@@ -5,15 +5,29 @@ import { useLocation, useNavigate } from 'react-router-dom/dist';
 import Edit from '../edit/edit';
 import Preview from '../preview/preview';
 import Footer from '../footer/footer';
+// import ImageUploader from '../../service/image_uploader';
 
-const Maker = ({ FileInput, authService, cardRepository }) => {
+const Maker = ({ FileInput, authService, cardRepository, imageUploader }) => {
   const navigateState = useLocation().state;
   const [cards, setCards] = useState({});
   const [userId, setUserId] = useState(navigateState && navigateState.id);
+  const [file, setFile] = useState({
+    fileName: null,
+    fileUrl: null,
+    public_id: null,
+  });
 
   const location = useLocation();
   const navigate = useNavigate();
   const user = location.state.name;
+
+  const onFileChange = (file) => {
+    setFile({
+      fileName: file.name,
+      fileUrl: file.url,
+      public_id: file.public_id,
+    });
+  };
 
   const onLogout = () => {
     authService.logout();
@@ -41,6 +55,8 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
     delete updated[update.id];
     setCards(updated);
     cardRepository.removeCard(userId, update);
+    // const uploaded = imageUploader.delete(file.public_id);
+    // return uploaded;
   };
 
   return (
@@ -54,6 +70,8 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
             addCard={addAndUpdateCard}
             updateCard={addAndUpdateCard}
             onDelete={onDelete}
+            onFileChange={onFileChange}
+            file={file}
           />
           <Preview card={cards} />
         </div>
