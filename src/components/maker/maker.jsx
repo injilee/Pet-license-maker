@@ -6,35 +6,10 @@ import Edit from '../edit/edit';
 import Preview from '../preview/preview';
 import Footer from '../footer/footer';
 
-const Maker = ({ FileInput, authService }) => {
-  const [cards, setCards] = useState({
-    1: {
-      id: 1,
-      name: '먼지',
-      petNumber: 153435,
-      birth: '2014년 05월 12일',
-      address: '서울특별시 관악구',
-      gender: '여아(중성화)',
-      featurs: '코리안 숏헤어 + 아메리칸 숏헤어(믹스)',
-      guardian1: '이인지',
-      guardianPhoneNum1: '010-2610-1667',
-      guardian2: '이인지',
-      guardianPhoneNum2: '010-2610-1667',
-    },
-    2: {
-      id: 2,
-      name: '요미',
-      petNumber: 476487,
-      birth: '2020년',
-      address: '경기도 성남시',
-      gender: '남아(중성화)',
-      featurs: '치즈 코리안 숏헤어',
-      guardian1: '이인지',
-      guardianPhoneNum1: '010-2610-1667',
-      guardian2: '이인지',
-      guardianPhoneNum2: '010-2610-1667',
-    },
-  });
+const Maker = ({ FileInput, authService, cardRepository }) => {
+  const navigateState = useLocation().state;
+  const [cards, setCards] = useState({});
+  const [userId, setUserId] = useState(navigateState && navigateState.id);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -46,7 +21,9 @@ const Maker = ({ FileInput, authService }) => {
 
   useEffect(() => {
     authService.onAuthChanged((user) => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid);
+      } else {
         navigate('/');
       }
     });
@@ -56,12 +33,14 @@ const Maker = ({ FileInput, authService }) => {
     const updated = { ...cards };
     updated[update.id] = update;
     setCards(updated);
+    cardRepository.saveCard(userId, update);
   };
 
   const onDelete = (update) => {
     const updated = { ...cards };
     delete updated[update.id];
     setCards(updated);
+    cardRepository.removeCard(userId, update);
   };
 
   return (
