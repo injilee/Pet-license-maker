@@ -55,6 +55,7 @@ const Maker = ({ FileInput, authService, cardRepository, imageUploader }) => {
     delete updated[update.id];
     setCards(updated);
     cardRepository.removeCard(userId, update);
+    imageUploader.test(file.public_id);
     // const uploaded = imageUploader.delete(file.public_id);
     // return uploaded;
   };

@@ -1,10 +1,9 @@
-import cloudinary from 'cloudinary/lib/cloudinary';
+// const cloudinary = require('cloudinary').v2;
 
-cloudinary.config({
-  cloud_name: process.env.REACT_APP_CLOUD_NAME,
-  api_key: process.env.REACT_APP_API_KEY,
-  api_secret: process.env.REACT_APP_API_SECRET,
-  preset_name: process.env.REACT_APP_PRESET_NAME,
-});
+// cloudinary.config({
+//   secure: true,
+// });
 
-export default cloudinary;
+// console.log(cloudinary.config());
+
+// export default cloudinary;
