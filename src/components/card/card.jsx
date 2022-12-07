@@ -10,7 +10,6 @@ const Card = ({ card }) => {
     address,
     gender,
     featurs,
-    fileName,
     fileUrl,
     guardian1,
     guardianPhoneNum1,

@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import { Cloudinary } from '@cloudinary/url-gen';
 
 class ImageUploader {
   constructor(cloud_name, preset_name) {
@@ -7,8 +6,7 @@ class ImageUploader {
     this.preset_name = preset_name;
   }
 
-  async test(public_id) {
-    console.log(public_id);
+  async delete(public_id) {
     const myHeaders = new Headers();
     myHeaders.append(
       'Authorization',
@@ -28,29 +26,10 @@ class ImageUploader {
     fetch(
       `cloudinary/v1_1/${this.cloud_name}/resources/image/upload/`,
       requestOptions,
-    )
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log('error', error));
-  }
-
-  async delete(public_id) {
-    // const cld = new Cloudinary({
-    //   cloud: {
-    //     cloudName: this.cloud_name,
-    //   },
-    // });
-    // console.log(cld);
-    // cld.v2.uploader
-    //   .destroy(public_id, 'image')
-    //   .then((result) => console.log(result));
-    // cloudinary.v2.uploader
-    //   .destroy(public_id)
-    //   .then((result) => console.log(result));
+    ).catch((error) => console.log('error', error));
   }
 
   async upload(file) {
-    console.log(file);
     const data = new FormData();
     data.append('file', file);
     data.append('upload_preset', this.preset_name);

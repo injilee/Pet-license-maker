@@ -4,6 +4,7 @@ import styles from '../../styles/button.module.css';
 const Button = ({ name, onClick }) => {
   return (
     <button
+      type="button"
       className={name === 'Add' ? `${styles.add}` : `${styles.delete}`}
       onClick={onClick}
     >

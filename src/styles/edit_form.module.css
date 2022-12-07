@@ -27,6 +27,7 @@ textarea {
 
 .guardian_wrap {
   display: flex;
+  flex-wrap: wrap;
 }
 .edit_guardian_input {
   /* width: 100%; */

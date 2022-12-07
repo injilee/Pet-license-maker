@@ -5,7 +5,6 @@ import { useLocation, useNavigate } from 'react-router-dom/dist';
 import Edit from '../edit/edit';
 import Preview from '../preview/preview';
 import Footer from '../footer/footer';
-// import ImageUploader from '../../service/image_uploader';
 
 const Maker = ({ FileInput, authService, cardRepository, imageUploader }) => {
   const navigateState = useLocation().state;
@@ -34,6 +33,18 @@ const Maker = ({ FileInput, authService, cardRepository, imageUploader }) => {
   };
 
   useEffect(() => {
+    const syncCard = cardRepository.getCard(userId, (cards) => {
+      setCards(cards);
+    });
+
+    if (!userId) {
+      return;
+    }
+
+    return () => syncCard();
+  }, [cardRepository, userId]);
+
+  useEffect(() => {
     authService.onAuthChanged((user) => {
       if (user) {
         setUserId(user.uid);
@@ -55,9 +66,7 @@ const Maker = ({ FileInput, authService, cardRepository, imageUploader }) => {
     delete updated[update.id];
     setCards(updated);
     cardRepository.removeCard(userId, update);
-    imageUploader.test(file.public_id);
-    // const uploaded = imageUploader.delete(file.public_id);
-    // return uploaded;
+    imageUploader.delete(file.public_id);
   };
 
   return (

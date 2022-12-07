@@ -3,7 +3,6 @@
 .edit_form {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 1.5em;
   border: 2px solid makerWhite;
@@ -27,6 +26,7 @@ textarea {
 
 .guardian_wrap {
   display: flex;
+  flex-wrap: wrap;
 }
 .edit_guardian_input {
   /* width: 100%; */
