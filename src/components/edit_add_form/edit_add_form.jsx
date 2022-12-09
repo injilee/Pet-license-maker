@@ -93,29 +93,29 @@ const EditAddForm = ({ FileInput, addCard, onFileChange, file }) => {
           disabled
         />
       )}
-      <div className={styles.birth_gender_address}>
+      <div className={styles.birth_gender}>
         <input
-          className={styles.edit_input}
+          className={`${styles.edit_input} ${styles.birth}`}
           type="text"
           name="birth"
           ref={birthRef}
           placeholder="생년월일"
         />
         <input
-          className={styles.edit_input}
+          className={`${styles.edit_input} ${styles.gender}`}
           type="text"
           name="gender"
           ref={addressRef}
           placeholder="성별(중성화여부)"
         />
-        <input
-          className={styles.edit_input}
-          type="text"
-          name="address"
-          ref={genderRef}
-          placeholder="주소"
-        />
       </div>
+      <input
+        className={styles.edit_input}
+        type="text"
+        name="address"
+        ref={genderRef}
+        placeholder="주소"
+      />
       <textarea
         className={styles.edit_input}
         type="text"

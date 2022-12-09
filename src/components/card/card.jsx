@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from '../../styles/card.module.css';
 
-const Card = ({ card }) => {
+const Card = memo(({ card }) => {
   const DEFALUT_IMAGE = '/images/default_logo.png';
   const {
     name,
@@ -51,6 +51,5 @@ const Card = ({ card }) => {
       </section>
     </section>
   );
-};
-
+});
 export default Card;

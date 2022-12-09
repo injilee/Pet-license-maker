@@ -95,9 +95,9 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
           onChange={onChange}
         />
       )}
-      <div className={styles.birth_gender_address}>
+      <div className={styles.birth_gender}>
         <input
-          className={styles.edit_input}
+          className={`${styles.edit_input} ${styles.birth}`}
           type="text"
           name="birth"
           defaultValue={birth}
@@ -105,22 +105,22 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
           onChange={onChange}
         />
         <input
-          className={styles.edit_input}
+          className={`${styles.edit_input} ${styles.gender}`}
           type="text"
           name="gender"
           defaultValue={gender}
           placeholder="성별(중성화여부)"
           onChange={onChange}
         />
-        <input
-          className={styles.edit_input}
-          type="text"
-          name="address"
-          defaultValue={address}
-          placeholder="주소"
-          onChange={onChange}
-        />
       </div>
+      <input
+        className={styles.edit_input}
+        type="text"
+        name="address"
+        defaultValue={address}
+        placeholder="주소"
+        onChange={onChange}
+      />
       <textarea
         className={styles.edit_input}
         type="text"

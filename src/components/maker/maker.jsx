@@ -52,7 +52,7 @@ const Maker = ({ FileInput, authService, cardRepository, imageUploader }) => {
         navigate('/');
       }
     });
-  });
+  }, [authService, navigate]);
 
   const addAndUpdateCard = (update) => {
     const updated = { ...cards };
