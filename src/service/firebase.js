@@ -3,7 +3,7 @@ import { getDatabase } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  apiKey: 'AIzaSyBQmK2pKXMmlBPIE6JQT3w5hRPaZbU_ylA',
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   databaseURL: 'https://pet-license-maker-default-rtdb.firebaseio.com',
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
