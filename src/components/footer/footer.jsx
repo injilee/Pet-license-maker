@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from '../../styles/footer.module.css';
 
-const Footer = ({ onLogout, user }) => {
+const Footer = memo(({ onLogout, user }) => {
   return (
     <div className={styles.profile}>
       {onLogout && (
@@ -14,5 +14,5 @@ const Footer = ({ onLogout, user }) => {
       )}
     </div>
   );
-};
+});
 export default Footer;

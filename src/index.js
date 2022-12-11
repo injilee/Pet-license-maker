@@ -7,6 +7,7 @@ import { firebaseApp } from './service/firebase';
 import ImageUploader from './service/image_uploader';
 import ImageFileInput from './components/image-file-input/imageFileInput';
 import CardRepository from './service/card_repository';
+import '@fortawesome/fontawesome-free/js/all.js';
 
 const authService = new AuthService(firebaseApp);
 const cardRepository = new CardRepository();
@@ -20,12 +21,10 @@ const FileInput = (props) => (
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App
-      authService={authService}
-      FileInput={FileInput}
-      cardRepository={cardRepository}
-      imageUploader={imageUploader}
-    />
-  </React.StrictMode>,
+  <App
+    authService={authService}
+    FileInput={FileInput}
+    cardRepository={cardRepository}
+    imageUploader={imageUploader}
+  />,
 );

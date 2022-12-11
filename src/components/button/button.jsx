@@ -1,7 +1,8 @@
 import React from 'react';
+import { memo } from 'react';
 import styles from '../../styles/button.module.css';
 
-const Button = ({ name, onClick }) => {
+const Button = memo(({ name, onClick }) => {
   return (
     <button
       type="button"
@@ -11,6 +12,6 @@ const Button = ({ name, onClick }) => {
       {name}
     </button>
   );
-};
+});
 
 export default Button;

@@ -3,6 +3,7 @@ import styles from '../../styles/preview.module.css';
 import Card from '../card/card';
 
 const Preview = ({ card }) => {
+  console.log('preview');
   return (
     <section className={styles.preview_container}>
       <h2 className={styles.preview_title}>Preview</h2>

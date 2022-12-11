@@ -1,8 +1,9 @@
-import React, { createRef, useState } from 'react';
+import React, { createRef, memo, useState } from 'react';
 import styles from '../../styles/edit_add_form.module.css';
 import Button from '../button/button';
 
-const EditAddForm = ({ FileInput, addCard, onFileChange, file }) => {
+const EditAddForm = memo(({ FileInput, addCard, onFileChange, file }) => {
+  console.log('edit add form');
   const [optionValue, setValue] = useState('');
 
   const formRef = createRef();
@@ -105,7 +106,7 @@ const EditAddForm = ({ FileInput, addCard, onFileChange, file }) => {
           className={`${styles.edit_input} ${styles.gender}`}
           type="text"
           name="gender"
-          ref={addressRef}
+          ref={genderRef}
           placeholder="성별(중성화여부)"
         />
       </div>
@@ -113,16 +114,17 @@ const EditAddForm = ({ FileInput, addCard, onFileChange, file }) => {
         className={styles.edit_input}
         type="text"
         name="address"
-        ref={genderRef}
+        ref={addressRef}
+        maxLength={45}
         placeholder="주소"
       />
       <textarea
         className={styles.edit_input}
         type="text"
         name="featurs"
-        maxLength={65}
+        maxLength={45}
         ref={featursRef}
-        placeholder="특징"
+        placeholder="특징(45자 이내)"
       ></textarea>
 
       <div className={styles.guardian_wrap}>
@@ -163,6 +165,6 @@ const EditAddForm = ({ FileInput, addCard, onFileChange, file }) => {
       </div>
     </form>
   );
-};
+});
 
 export default EditAddForm;

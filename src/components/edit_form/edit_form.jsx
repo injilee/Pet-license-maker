@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { createRef, useState } from 'react';
 import styles from '../../styles/edit_form.module.css';
 import Button from '../button/button';
 
 const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
+  console.log('edit form');
   const [optionValue, setValue] = useState(null);
   const {
     name,
@@ -18,14 +19,24 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
     fileName,
   } = card;
 
+  const nameRef = createRef();
+  const petNumberRef = createRef();
+  const birthRef = createRef();
+  const addressRef = createRef();
+  const genderRef = createRef();
+  const featursRef = createRef();
+  const guardian1Ref = createRef();
+  const guardianPhoneNum1Ref = createRef();
+  const guardian2Ref = createRef();
+  const guardianPhoneNum2Ref = createRef();
+  const petNumberOptionRef = createRef();
+
   const onFileChange = (file) => {
-    console.log(file);
     updateCard({
       ...card,
       fileName: file.name,
       fileUrl: file.url,
     });
-    console.log(card);
   };
 
   const onSubmit = () => {
@@ -49,15 +60,17 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
   };
 
   const onChange = (event) => {
-    if (event.currentTarget === null) {
+    const target = event.target;
+    const value = target.value;
+    if (target === null) {
       return;
+    } else {
+      const update = {
+        ...card,
+        [target.name]: value,
+      };
+      updateCard(update);
     }
-
-    const update = {
-      ...card,
-      [event.currentTarget.name]: event.currentTarget.value,
-    };
-    updateCard(update);
   };
 
   return (
@@ -67,10 +80,14 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
         type="text"
         name="name"
         defaultValue={name}
+        ref={nameRef}
         placeholder="Name"
         onChange={onChange}
       />
-      <select onChange={(value) => selectOption(value.target.value)}>
+      <select
+        onChange={(value) => selectOption(value.target.value)}
+        ref={petNumberOptionRef}
+      >
         <option value="0">동물등록번호 여부</option>
         <option value="false">없음</option>
         <option value="true">있음</option>
@@ -82,6 +99,7 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
           type="text"
           name="petNumber"
           defaultValue={petNumber}
+          ref={petNumberRef}
           onChange={onChange}
         />
       ) : (
@@ -91,6 +109,7 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
           name="petNumber"
           defaultValue={petNumber}
           placeholder="동물등록번호"
+          ref={petNumberRef}
           disabled
           onChange={onChange}
         />
@@ -101,6 +120,7 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
           type="text"
           name="birth"
           defaultValue={birth}
+          ref={birthRef}
           placeholder="생년월일"
           onChange={onChange}
         />
@@ -109,6 +129,7 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
           type="text"
           name="gender"
           defaultValue={gender}
+          ref={genderRef}
           placeholder="성별(중성화여부)"
           onChange={onChange}
         />
@@ -118,6 +139,8 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
         type="text"
         name="address"
         defaultValue={address}
+        ref={addressRef}
+        maxLength={45}
         placeholder="주소"
         onChange={onChange}
       />
@@ -125,9 +148,10 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
         className={styles.edit_input}
         type="text"
         name="featurs"
-        maxLength={65}
+        maxLength={45}
         defaultValue={featurs}
-        placeholder="특징"
+        ref={featursRef}
+        placeholder="특징(45자 이내)"
         onChange={onChange}
       ></textarea>
 
@@ -137,6 +161,7 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
           type="text"
           name="guardian1"
           defaultValue={guardian1}
+          ref={guardian1Ref}
           placeholder="보호자 성함"
           onChange={onChange}
         />
@@ -145,6 +170,7 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
           type="text"
           name="guardianPhoneNum1"
           defaultValue={guardianPhoneNum1}
+          ref={guardianPhoneNum1Ref}
           placeholder="보호자 전화번호"
           onChange={onChange}
         />
@@ -155,6 +181,7 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
           type="text"
           name="guardian2"
           defaultValue={guardian2}
+          ref={guardian2Ref}
           placeholder="보호자 성함"
           onChange={onChange}
         />
@@ -163,6 +190,7 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
           type="text"
           name="guardianPhoneNum2"
           defaultValue={guardianPhoneNum2}
+          ref={guardianPhoneNum2Ref}
           placeholder="보호자 전화번호"
           onChange={onChange}
         />

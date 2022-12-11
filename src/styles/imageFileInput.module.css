@@ -5,6 +5,9 @@
   background-color: rgb(252, 174, 72);
   border: none;
   cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .imageBtn:hover {
