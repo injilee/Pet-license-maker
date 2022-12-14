@@ -48,6 +48,7 @@ src/
 <br/>
 
 ### Database 구조
+📌 추가 작성
 
 <br/>
 
@@ -61,7 +62,7 @@ src/
 <br/>
 
 ## 3. 문제해결
-### 1. 
+### 1. 📌 추가 작성
 
 ### 2. Cloudinary api
 - upload
@@ -152,6 +153,7 @@ build 후에 <code>netlify deploy</code> 를 했으나 <code>"build.command" fai
 </pre>
 github에 올라간 <code>App.css</code> 파일명이 대문자로 되어 있었다. 
 파일명을 <code>app.css</code> 소문자로 변경해줘야 한다.
+
 <br/>
 
 ## 4. Preview
