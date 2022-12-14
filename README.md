@@ -48,8 +48,8 @@ https://majestic-basbousa-dce7c6.netlify.app/
 
 ## Reference
 
-[Dream Coding](https://academy.dream-coding.com/)
-[React Router](https://reactrouter.com/en/main)
+[Dream Coding](https://academy.dream-coding.com/)<br/>
+[React Router](https://reactrouter.com/en/main)<br/>
 [Firebase](https://firebase.google.com/docs?authuser=0)
 
 ## Tech Blog
