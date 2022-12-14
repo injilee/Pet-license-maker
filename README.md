@@ -158,12 +158,19 @@ github에 올라간 <code>App.css</code> 파일명이 대문자로 되어 있었
 
 ## 4. Preview
 
-- Desktop 🖥
+Desktop 🖥
+- login page
+![Pet License Maker_desktop](https://user-images.githubusercontent.com/90603357/207564043-2ce38ca4-abcd-43c4-8bce-ce6b2c2974f9.png)
+
+- maker page
+![Pet License Maker_maker_desktop](https://user-images.githubusercontent.com/90603357/207564212-e2051d93-100d-4bf7-9712-6b1f5d088d68.png)
 
 <br/>
 
-- Mobile 📱
+Mobile 📱
+- login page
 
+- maker page
 ---
 
 ## 5. Demo Link
