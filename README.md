@@ -52,6 +52,11 @@ src/
 
 <br/>
 
+### Email & Password 정규표현식
+📌 추가 작성
+
+<br/>
+
 ## 2. 구현기능
 - [x] Google, Github 계정 로그인 지원
 - [x] Firebase Realtime으로 database 실시간 반영
