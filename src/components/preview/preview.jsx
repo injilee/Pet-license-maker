@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from '../../styles/preview.module.css';
 import Card from '../card/card';
 
-const Preview = ({ card }) => {
-  console.log('preview');
+const Preview = memo(({ card }) => {
   return (
     <section className={styles.preview_container}>
       <h2 className={styles.preview_title}>Preview</h2>
@@ -12,6 +11,6 @@ const Preview = ({ card }) => {
       ))}
     </section>
   );
-};
+});
 
 export default Preview;

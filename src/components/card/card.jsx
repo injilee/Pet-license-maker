@@ -6,7 +6,7 @@ import { createRef } from 'react';
 
 const Card = ({ card }) => {
   const cardRef = createRef();
-  const DEFALUT_IMAGE = '/images/default_logo.png';
+  const DEFALUT_IMAGE = '/images/default_card.png';
   const {
     name,
     petNumber,

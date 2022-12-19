@@ -9,6 +9,7 @@ import Footer from '../footer/footer';
 const Maker = memo(
   ({ FileInput, authService, cardRepository, imageUploader }) => {
     const navigateState = useLocation().state;
+    const [user, setUserName] = useState({});
     const [cards, setCards] = useState({});
     const [userId, setUserId] = useState(navigateState && navigateState.id);
     const [file, setFile] = useState({
@@ -17,9 +18,7 @@ const Maker = memo(
       public_id: null,
     });
 
-    const location = useLocation();
     const navigate = useNavigate();
-    const user = location.state.name;
 
     const onFileChange = (file) => {
       setFile({
@@ -49,6 +48,10 @@ const Maker = memo(
       authService.onAuthChanged((user) => {
         if (user) {
           setUserId(user.uid);
+          setUserName({
+            email: user.email,
+            displayName: user.displayName,
+          });
         } else {
           navigate('/');
         }

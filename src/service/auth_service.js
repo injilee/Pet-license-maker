@@ -5,6 +5,8 @@ import {
   GithubAuthProvider,
   onAuthStateChanged,
   signOut,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from 'firebase/auth';
 
 class AuthService {
@@ -21,6 +23,41 @@ class AuthService {
   login(providerName) {
     const authprovider = this.getProvider(providerName);
     return signInWithPopup(this.firebaseAuth, authprovider);
+  }
+
+  emailAndPasswordLogin(email, password) {
+    const auth = this.firebaseAuth;
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        return user;
+      })
+      .catch((error) => console.log(error));
+  }
+
+  emailSignIn(email, password) {
+    const auth = this.firebaseAuth;
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        switch (error.code) {
+          case 'auth/missing-email':
+            alert('이메일 입력해주세요');
+            break;
+
+          case 'auth/wrong-password':
+            break;
+
+          case 'auth/internal-error':
+            break;
+
+          default:
+            console.log(error);
+        }
+      });
   }
 
   onAuthChanged(onUserChanged) {

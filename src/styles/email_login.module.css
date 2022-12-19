@@ -1,4 +1,10 @@
-@value makerShadow from '../common/colors.css';
+@value makerShadow, makerPink, makerWhite from '../common/colors.css';
+
+.email_form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
 .email_login,
 .password_warp {
@@ -26,7 +32,42 @@
   padding: 0 0.6em;
 }
 
+.email_span,
+.password_span {
+  visibility: visible;
+  color: #e86262;
+  font-size: 0.95rem;
+}
+
 .email_input::placeholder,
 .password::placeholder {
   color: makerPlaceholder;
+}
+
+.email_span {
+  margin-bottom: 0.4em;
+}
+
+.password_span {
+  margin-bottom: 1.5em;
+}
+
+.email_span.hidden {
+  visibility: hidden;
+}
+
+.password_span.hidden {
+  visibility: hidden;
+}
+
+.email_loginBtn {
+  width: 6.5em;
+  height: 38px;
+  color: makerWhite;
+  font-size: 1rem;
+  margin: 0 auto;
+  background-color: makerPink;
+  cursor: pointer;
+  border: 1px solid makerShadow;
+  border-radius: 6px;
 }

@@ -1,9 +1,8 @@
-import React, { createRef, useState } from 'react';
+import React, { createRef, useState, memo } from 'react';
 import styles from '../../styles/edit_form.module.css';
 import Button from '../button/button';
 
-const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
-  console.log('edit form');
+const EditForm = memo(({ FileInput, card, updateCard, onDelete }) => {
   const [optionValue, setValue] = useState(null);
   const {
     name,
@@ -171,7 +170,7 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
           name="guardianPhoneNum1"
           defaultValue={guardianPhoneNum1}
           ref={guardianPhoneNum1Ref}
-          placeholder="보호자 전화번호"
+          placeholder="보호자 전화번호 (010-0000-0000)"
           onChange={onChange}
         />
       </div>
@@ -201,6 +200,6 @@ const EditForm = ({ FileInput, card, updateCard, onDelete }) => {
       </div>
     </form>
   );
-};
+});
 
 export default EditForm;

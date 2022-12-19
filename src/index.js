@@ -21,10 +21,13 @@ const FileInput = (props) => (
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <App
-    authService={authService}
-    FileInput={FileInput}
-    cardRepository={cardRepository}
-    imageUploader={imageUploader}
-  />,
+  <React.StrictMode>
+    <App
+      authService={authService}
+      FileInput={FileInput}
+      cardRepository={cardRepository}
+      imageUploader={imageUploader}
+    />
+    ,
+  </React.StrictMode>,
 );

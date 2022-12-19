@@ -55,7 +55,7 @@ const Login = ({ authService }) => {
           >
             Email
           </button>
-          {check === true && <EmailLogin />}
+          {check === true && <EmailLogin authService={authService} />}
         </div>
       </section>
     </>

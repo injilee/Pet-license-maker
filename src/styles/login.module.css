@@ -1,4 +1,4 @@
-@value makerWhite, makerShadow, makerPink, makerPlaceholder, selectBlack from '../common/colors.css';
+@value makerWhite, makerShadow, makerPink, makerGreen, makerPlaceholder, selectBlack from '../common/colors.css';
 
 .header {
   display: flex;
@@ -47,7 +47,7 @@
   margin-bottom: 0.8em;
 }
 .btn_email.checked {
-  background-color: makerPink;
+  background-color: makerGreen;
   color: makerWhite;
   border: none;
 }
@@ -55,7 +55,7 @@
 .btn_google:hover,
 .btn_github:hover,
 .btn_email:hover {
-  background-color: makerPink;
+  background-color: makerGreen;
   color: makerWhite;
   border: none;
 }

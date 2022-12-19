@@ -3,7 +3,6 @@ import styles from '../../styles/edit_add_form.module.css';
 import Button from '../button/button';
 
 const EditAddForm = memo(({ FileInput, addCard, onFileChange, file }) => {
-  console.log('edit add form');
   const [optionValue, setValue] = useState('');
 
   const formRef = createRef();
@@ -140,7 +139,7 @@ const EditAddForm = memo(({ FileInput, addCard, onFileChange, file }) => {
           type="text"
           name="guardianPhoneNum1"
           ref={guardianPhoneNum1Ref}
-          placeholder="보호자 전화번호"
+          placeholder="보호자 전화번호 (010-0000-0000)"
         />
       </div>
       <div className={styles.guardian_wrap}>

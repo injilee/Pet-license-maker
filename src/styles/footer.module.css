@@ -1,6 +1,8 @@
 @value makerShadow, makerLightGrey, makerWhite from '../common/colors.css';
 
 .profile {
+  position: sticky;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
   padding: 0.7em;

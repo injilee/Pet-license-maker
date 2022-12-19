@@ -5,11 +5,9 @@ class CardRepository {
   saveCard(userId, card) {
     const db = getDatabase();
     set(ref(db, `${userId}/users/${card.id}`), card);
-    console.log('card repository');
   }
 
   removeCard(userId, card) {
-    console.log(card);
     const db = getDatabase();
     const cardRef = ref(db, `${userId}/users/${card.id}`);
     return remove(cardRef);
