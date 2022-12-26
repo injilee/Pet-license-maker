@@ -147,7 +147,7 @@ async upload(file) {
 <code>upload</code>의 인자로 이미지 파일을 교체할 카드의 정보를 받아온다.
 Cloudinary에 이미지를 업로드 하면 결과값을 return 받는데,
 필요한 정보인 <code>name, url, public_id</code>를 오브젝트 형태로 저장해둔다.
-<code?public_id</code>는 delete api의 인자로 사용할 것이다.
+<code>public_id</code>는 delete api의 인자로 사용할 것이다.
 
 - delete
 
@@ -230,20 +230,20 @@ github에 올라간 <code>App.css</code> 파일명이 대문자로 되어 있었
 Desktop 🖥
 
 - login page
-  ![Pet License Maker_desktop](https://user-images.githubusercontent.com/90603357/207564043-2ce38ca4-abcd-43c4-8bce-ce6b2c2974f9.png)
+  <img src="https://user-images.githubusercontent.com/90603357/207564043-2ce38ca4-abcd-43c4-8bce-ce6b2c2974f9.png" alt="login page desktop screenshot" style="width:100%;"/>
 
 - maker page
-  ![Pet License Maker_maker_desktop](https://user-images.githubusercontent.com/90603357/207564212-e2051d93-100d-4bf7-9712-6b1f5d088d68.png)
+  <img src="https://user-images.githubusercontent.com/90603357/207564212-e2051d93-100d-4bf7-9712-6b1f5d088d68.png" alt="maker page desktop screenshot" style="width:100%;"/>
 
 <br/>
 
 Mobile 📱
 
 - login page
-  ![Pet License Maker_mobile](https://user-images.githubusercontent.com/90603357/209548671-ab4311d7-81a0-407a-8d99-6de497b6d658.png)
+  <img src="https://user-images.githubusercontent.com/90603357/209548671-ab4311d7-81a0-407a-8d99-6de497b6d658.png" alt="login page mobile screenshot" style="width:80%;"/>
 
 - maker page
-  ![Pet License Maker_maker_mobile](https://user-images.githubusercontent.com/90603357/209548712-1044e406-5aaa-4bca-971f-c6150fd852b3.png)
+  <img src="https://user-images.githubusercontent.com/90603357/209548712-1044e406-5aaa-4bca-971f-c6150fd852b3.png" alt="maker page mobile screenshot" style="width:80%;"/>
 
 ---
 
