@@ -8,17 +8,9 @@ const Card = ({ card }) => {
   const cardRef = createRef();
   const DEFALUT_IMAGE = '/images/default_card.png';
   const {
-    name,
-    petNumber,
-    birth,
-    address,
-    gender,
-    featurs,
-    fileUrl,
-    guardian1,
-    guardianPhoneNum1,
-    guardian2,
-    guardianPhoneNum2,
+    pet: { name, petNumber, birth, gender, address, featurs },
+    guardians: { guardian1, guardianPhoneNum1, guardian2, guardianPhoneNum2 },
+    image: { fileUrl },
   } = card;
   const url = fileUrl || DEFALUT_IMAGE;
 

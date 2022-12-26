@@ -5,17 +5,9 @@ import Button from '../button/button';
 const EditForm = memo(({ FileInput, card, updateCard, onDelete }) => {
   const [optionValue, setValue] = useState(null);
   const {
-    name,
-    petNumber,
-    birth,
-    gender,
-    address,
-    featurs,
-    guardian1,
-    guardianPhoneNum1,
-    guardian2,
-    guardianPhoneNum2,
-    fileName,
+    pet: { name, petNumber, birth, gender, address, featurs },
+    guardians: { guardian1, guardianPhoneNum1, guardian2, guardianPhoneNum2 },
+    image: { fileName },
   } = card;
 
   const nameRef = createRef();
@@ -33,8 +25,7 @@ const EditForm = memo(({ FileInput, card, updateCard, onDelete }) => {
   const onFileChange = (file) => {
     updateCard({
       ...card,
-      fileName: file.name,
-      fileUrl: file.url,
+      image: { ...card.image, fileName: file.name, fileUrl: file.url },
     });
   };
 
@@ -66,7 +57,21 @@ const EditForm = memo(({ FileInput, card, updateCard, onDelete }) => {
     } else {
       const update = {
         ...card,
-        [target.name]: value,
+        pet: { ...card.pet, [target.name]: value },
+      };
+      updateCard(update);
+    }
+  };
+
+  const onChangeGuardiuns = (event) => {
+    const target = event.target;
+    const value = target.value;
+    if (target === null) {
+      return;
+    } else {
+      const update = {
+        ...card,
+        guardians: { ...card.guardians, [target.name]: value },
       };
       updateCard(update);
     }
@@ -162,7 +167,7 @@ const EditForm = memo(({ FileInput, card, updateCard, onDelete }) => {
           defaultValue={guardian1}
           ref={guardian1Ref}
           placeholder="보호자 성함"
-          onChange={onChange}
+          onChange={onChangeGuardiuns}
         />
         <input
           className={styles.edit_guardian_input}
@@ -171,7 +176,7 @@ const EditForm = memo(({ FileInput, card, updateCard, onDelete }) => {
           defaultValue={guardianPhoneNum1}
           ref={guardianPhoneNum1Ref}
           placeholder="보호자 전화번호 (010-0000-0000)"
-          onChange={onChange}
+          onChange={onChangeGuardiuns}
         />
       </div>
       <div className={styles.guardian_wrap}>
@@ -182,7 +187,7 @@ const EditForm = memo(({ FileInput, card, updateCard, onDelete }) => {
           defaultValue={guardian2}
           ref={guardian2Ref}
           placeholder="보호자 성함"
-          onChange={onChange}
+          onChange={onChangeGuardiuns}
         />
         <input
           className={styles.edit_guardian_input}
@@ -191,7 +196,7 @@ const EditForm = memo(({ FileInput, card, updateCard, onDelete }) => {
           defaultValue={guardianPhoneNum2}
           ref={guardianPhoneNum2Ref}
           placeholder="보호자 전화번호"
-          onChange={onChange}
+          onChange={onChangeGuardiuns}
         />
       </div>
       <div className={styles.fileInput}>

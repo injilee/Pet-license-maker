@@ -38,18 +38,24 @@ const EditAddForm = memo(({ FileInput, addCard, onFileChange, file }) => {
     event.preventDefault();
     const card = {
       id: Date.now(),
-      name: nameRef.current.value || '',
-      petNumber: petNumberRef.current.value || '',
-      birth: birthRef.current.value || '',
-      gender: addressRef.current.value || '',
-      address: genderRef.current.value || '',
-      featurs: featursRef.current.value || '',
-      guardian1: guardian1Ref.current.value || '',
-      guardianPhoneNum1: guardianPhoneNum1Ref.current.value || '',
-      guardian2: guardian2Ref.current.value || '',
-      guardianPhoneNum2: guardianPhoneNum2Ref.current.value || '',
-      fileName: file.fileName || '',
-      fileUrl: file.fileUrl || '',
+      pet: {
+        name: nameRef.current.value || '',
+        petNumber: petNumberRef.current.value || '',
+        birth: birthRef.current.value || '',
+        gender: addressRef.current.value || '',
+        address: genderRef.current.value || '',
+        featurs: featursRef.current.value || '',
+      },
+      guardians: {
+        guardian1: guardian1Ref.current.value || '',
+        guardianPhoneNum1: guardianPhoneNum1Ref.current.value || '',
+        guardian2: guardian2Ref.current.value || '',
+        guardianPhoneNum2: guardianPhoneNum2Ref.current.value || '',
+      },
+      image: {
+        fileName: file.fileName || '',
+        fileUrl: file.fileUrl || '',
+      },
     };
 
     formRef.current.reset();

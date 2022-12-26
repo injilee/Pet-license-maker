@@ -28,6 +28,5 @@ root.render(
       cardRepository={cardRepository}
       imageUploader={imageUploader}
     />
-    ,
   </React.StrictMode>,
 );
