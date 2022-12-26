@@ -249,7 +249,7 @@ Mobile 📱
 
 ## 5. Demo Link
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bc0fe930-ff3d-4c4e-bc6c-613f0dc5cc42/deploy-status)](https://app.netlify.com/sites/pet-licese-maker/deploys)
+https://pet-licese-maker.netlify.app/
 
 <br/>
 
