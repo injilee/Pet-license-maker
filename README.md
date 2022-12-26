@@ -230,20 +230,20 @@ github에 올라간 <code>App.css</code> 파일명이 대문자로 되어 있었
 Desktop 🖥
 
 - login page
-  <img src="https://user-images.githubusercontent.com/90603357/207564043-2ce38ca4-abcd-43c4-8bce-ce6b2c2974f9.png" alt="login page desktop screenshot" style="width:100%;"/>
+  <br/><img src="https://user-images.githubusercontent.com/90603357/207564043-2ce38ca4-abcd-43c4-8bce-ce6b2c2974f9.png" alt="login page desktop screenshot" style="width:100%;"/>
 
 - maker page
-  <img src="https://user-images.githubusercontent.com/90603357/207564212-e2051d93-100d-4bf7-9712-6b1f5d088d68.png" alt="maker page desktop screenshot" style="width:100%;"/>
+  <br/><img src="https://user-images.githubusercontent.com/90603357/207564212-e2051d93-100d-4bf7-9712-6b1f5d088d68.png" alt="maker page desktop screenshot" style="width:100%;"/>
 
 <br/>
 
 Mobile 📱
 
 - login page
-  <img src="https://user-images.githubusercontent.com/90603357/209548671-ab4311d7-81a0-407a-8d99-6de497b6d658.png" alt="login page mobile screenshot" style="width:80%;"/>
+  <br/><img src="https://user-images.githubusercontent.com/90603357/209548671-ab4311d7-81a0-407a-8d99-6de497b6d658.png" alt="login page mobile screenshot" style="width:30%;"/>
 
 - maker page
-  <img src="https://user-images.githubusercontent.com/90603357/209548712-1044e406-5aaa-4bca-971f-c6150fd852b3.png" alt="maker page mobile screenshot" style="width:80%;"/>
+  <br/><img src="https://user-images.githubusercontent.com/90603357/209548712-1044e406-5aaa-4bca-971f-c6150fd852b3.png" alt="maker page mobile screenshot" style="width:30%;"/>
 
 ---
 
