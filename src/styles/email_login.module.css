@@ -60,14 +60,33 @@
   visibility: hidden;
 }
 
+.resetPassword {
+  text-align: right;
+  border: none;
+  background-color: transparent;
+  color: gray;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.resetPassword:hover {
+  color: black;
+  text-decoration: underline;
+}
+
 .email_loginBtn {
   width: 6.5em;
   height: 38px;
-  color: makerWhite;
+  color: black;
   font-size: 1rem;
   margin: 0 auto;
-  background-color: makerPink;
+  background-color: none;
   cursor: pointer;
   border: 1px solid makerShadow;
   border-radius: 6px;
+}
+
+.email_loginBtn:hover {
+  color: makerWhite;
+  background-color: #2956eb;
 }

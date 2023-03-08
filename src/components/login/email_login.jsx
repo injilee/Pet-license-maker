@@ -16,6 +16,16 @@ const EmailLogin = ({ authService }) => {
   const passwordRef = createRef();
   const passwordSpan = createRef();
 
+  const onSendEmail = () => {
+    const emailValue = emailRef.current.value;
+    if (emailValue.match(emailRegex) === null) {
+      alert('이메일을 입력하면 비밀번호를 재설정 할 수 있습니다.');
+      emailRef.current.focus();
+    } else {
+      authService.resetPassword(emailValue);
+    }
+  };
+
   const onEmailCheck = () => {
     const emailValue = emailRef.current.value;
     if (emailValue.match(emailRegex) === null) {
@@ -62,7 +72,8 @@ const EmailLogin = ({ authService }) => {
               userEmail === null ? '' : styles.hidden
             }`}
           >
-            이메일 형식을 확인해주세요.
+            이메일 형식을 확인해주세요. 이메일이 기억나지 않는다면
+            lij8016@gmail.com로 문의 주세요.
           </span>
         </div>
         <div className={styles.password_warp}>
@@ -77,13 +88,21 @@ const EmailLogin = ({ authService }) => {
             onChange={onPasswordCheck}
             placeholder="password"
           />
+          <button
+            type="button"
+            className={styles.resetPassword}
+            onClick={onSendEmail}
+          >
+            비밀번호 재설정
+          </button>
           <span
             ref={passwordSpan}
             className={`${styles.password_span} ${
               userPassword === null ? '' : styles.hidden
             }`}
           >
-            비밀번호를 확인해주세요.
+            문자, 숫자, 특수문자(&#42;&#91;&#64;&#36;&#33;&#35;&#37;&#38;)를
+            포함한 8자리 이상의 비밀번호를 입력해주세요.
           </span>
           <button
             type="submit"
