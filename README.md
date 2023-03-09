@@ -227,7 +227,7 @@ Desktop 🖥
   <br/><img src="https://user-images.githubusercontent.com/90603357/207564043-2ce38ca4-abcd-43c4-8bce-ce6b2c2974f9.png" alt="login page desktop screenshot" style="width:100%;"/>
 
 - maker page
-  <br/><img src="https://github.com/injilee/Pet-license-maker/issues/2#issue-1496216114.png" alt="maker page desktop screenshot" style="width:100%;"/>
+  <br/><img src="https://user-images.githubusercontent.com/90603357/223971863-b3f58383-7022-4aef-a5be-8dd73f6ee7d8.png" alt="maker page desktop screenshot" style="width:100%;"/>
 
 <br/>
 
@@ -237,7 +237,7 @@ Mobile 📱
   <br/><img src="https://user-images.githubusercontent.com/90603357/209548671-ab4311d7-81a0-407a-8d99-6de497b6d658.png" alt="login page mobile screenshot" style="width:30%;"/>
 
 - maker page
-  <br/><img src="https://github.com/injilee/Pet-license-maker/issues/4#issue-1510911180.png" alt="maker page mobile screenshot" style="width:30%;"/>
+  <br/><img src="https://user-images.githubusercontent.com/90603357/223971863-b3f58383-7022-4aef-a5be-8dd73f6ee7d8.png" alt="maker page mobile screenshot" style="width:30%;"/>
 
 ---
 
