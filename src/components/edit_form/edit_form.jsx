@@ -200,7 +200,7 @@ const EditForm = memo(({ FileInput, card, updateCard, onDelete }) => {
         />
       </div>
       <div className={styles.fileInput}>
-        <FileInput onFileChange={onFileChange} name={fileName} />
+        <FileInput onFileChange={onFileChange} name={name} />
         <Button name="Delete" onClick={onSubmit} />
       </div>
     </form>

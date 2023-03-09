@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import styles from '../../styles/card.module.css';
-import domtoimage from 'dom-to-image';
-import { saveAs } from 'file-saver';
-import { createRef } from 'react';
+import html2canvas from 'html2canvas';
 
 const Card = ({ card }) => {
-  const cardRef = createRef();
+  const capture = createRef();
   const DEFALUT_IMAGE = '/images/default_card.png';
   const {
     pet: { name, petNumber, birth, gender, address, featurs },
@@ -15,22 +13,34 @@ const Card = ({ card }) => {
   const url = fileUrl || DEFALUT_IMAGE;
 
   const downloadCard = () => {
-    const card = cardRef.current;
-    const filter = (card) => {
-      return card.tagName !== 'BUTTON';
-    };
+    const card = capture.current;
+    html2canvas(card, {
+      allowTaint: true,
+      useCORS: true,
+    })
+      .then((canvas) =>
+        saveAs(canvas.toDataURL('image/png'), `${name}_card.png`),
+      )
+      .catch((error) => console.log(error));
+  };
 
-    domtoimage
-      .toBlob(card, { filter: filter })
-      .then((blob) => saveAs(blob, `${name}_card.png`));
+  const saveAs = (uri, fileName) => {
+    let a = document.createElement('a');
+    a.href = uri;
+    a.download = fileName;
+    a.click();
   };
 
   return (
-    <div className={styles.card} ref={cardRef}>
-      <section className={styles.preview_header}>
+    <div className={styles.card}>
+      <section className={styles.preview_header} ref={capture}>
         <div className={styles.card_header}>
           <h2 className={styles.license_title}>반려동물등록증</h2>
-          <button className={styles.downBtn} onClick={downloadCard}>
+          <button
+            className={styles.downBtn}
+            onClick={downloadCard}
+            data-html2canvas-ignore="true"
+          >
             <i
               className={`fa-solid fa-download ${styles.download_card}`}
               aria-label="download Pet License"

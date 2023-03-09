@@ -30,13 +30,16 @@
   cursor: pointer;
 }
 
+.card {
+  margin-bottom: 2em;
+}
+
 .preview_header {
   max-width: 470px;
   font-size: 0.9rem;
   border-radius: 5px;
   background-color: #fff050;
   padding: 0.7em;
-  margin: 0 auto 2em;
 }
 
 .license_title {
