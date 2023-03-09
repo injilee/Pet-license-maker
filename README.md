@@ -227,7 +227,7 @@ Desktop 🖥
   <br/><img src="https://user-images.githubusercontent.com/90603357/207564043-2ce38ca4-abcd-43c4-8bce-ce6b2c2974f9.png" alt="login page desktop screenshot" style="width:100%;"/>
 
 - maker page
-  <br/><img src="https://user-images.githubusercontent.com/90603357/223971863-b3f58383-7022-4aef-a5be-8dd73f6ee7d8.png" alt="maker page desktop screenshot" style="width:100%;"/>
+  <br/><img src="https://user-images.githubusercontent.com/90603357/223971644-6dd47fb8-5506-4485-a73b-a59edc162fe9.png" alt="maker page desktop screenshot" style="width:100%;"/>
 
 <br/>
 
