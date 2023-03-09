@@ -3,7 +3,7 @@
 반려동물등록증을 모바일로 만들 수 있도록 제작한 서비스입니다.
 
 <strong>개발 기간</strong> 📆<br/>
-2022.11.02 ~ 2022.12.11
+2022.11.02 ~ 2022.12.26
 
 <br/>
 
@@ -178,39 +178,33 @@ async delete(public_id) {
 
 제작한 카드 삭제 시, 카드에 등록된 이미지 또한 함께 삭제하는 함수다.
 카드의 <code>id</code>를 이용해 해당하는 카드와 카드에 등록된 이미지를 삭제하여 Cloudinary의 저장공간을 확보할 수 있다.
+<br/>
 
 ### 2. 컴포넌트를 이미지로 저장
 
-사용자가 만든 카드 컴포넌트를 이미지로 저장할 수 있게 <code>dom to image</code>와 <code>file saver</code>로 구현했다.
+사용자가 만든 카드 컴포넌트를 이미지로 저장할 수 있게 <code>dom to image</code>와 <code>file saver</code>로 구현했으나 safari, 삼성 인터넷 같은 모바일 환경에서는 이미지가 다운로드 되지 않는 버그가 있었다. <code>dom to image</code> 대신 <code>html2canvas</code>를 사용하였다.
 
 ```javascript
 const downloadCard = () => {
-  const card = cardRef.current;
-
-  domtoimage.toBlob(card).then((blob) => saveAs(blob, `${name}_card.png`));
+  const card = capture.current;
+  html2canvas(card, {
+    allowTaint: true,
+    useCORS: true,
+  })
+    .then((canvas) => saveAs(canvas.toDataURL('image/png'), `${name}_card.png`))
+    .catch((error) => console.log(error));
 };
 
-return (
-  <div className={styles.card} ref={cardRef}>
-    ...
-  </div>
-);
-```
-
-이미지로 변환할 컴포넌트에 포함되지 않았으면 하는 버튼이 있어 <code>filter</code>를 <code>option</code>에 추가해줬다.
-
-```javascript
-const downloadCard = () => {
-  const card = cardRef.current;
-  const filter = (card) => {
-    return card.tagName !== 'BUTTON';
-  };
-
-  domtoimage
-    .toBlob(card, { filter: filter })
-    .then((blob) => saveAs(blob, `${name}_card.png`));
+const saveAs = (uri, fileName) => {
+  let a = document.createElement('a');
+  a.href = uri;
+  a.download = fileName;
+  a.click();
 };
 ```
+
+크로스브라우징 결과, safari와 삼성 인터넷, chrome, firefox에서 정상적으로 이미지가 저장되었다.
+<br/>
 
 ### 3. Netlify Deploy Faild
 
@@ -233,7 +227,7 @@ Desktop 🖥
   <br/><img src="https://user-images.githubusercontent.com/90603357/207564043-2ce38ca4-abcd-43c4-8bce-ce6b2c2974f9.png" alt="login page desktop screenshot" style="width:100%;"/>
 
 - maker page
-  <br/><img src="https://user-images.githubusercontent.com/90603357/207564212-e2051d93-100d-4bf7-9712-6b1f5d088d68.png" alt="maker page desktop screenshot" style="width:100%;"/>
+  <br/><img src="https://github.com/injilee/Pet-license-maker/issues/2#issue-1496216114.png" alt="maker page desktop screenshot" style="width:100%;"/>
 
 <br/>
 
@@ -243,13 +237,13 @@ Mobile 📱
   <br/><img src="https://user-images.githubusercontent.com/90603357/209548671-ab4311d7-81a0-407a-8d99-6de497b6d658.png" alt="login page mobile screenshot" style="width:30%;"/>
 
 - maker page
-  <br/><img src="https://user-images.githubusercontent.com/90603357/209548712-1044e406-5aaa-4bca-971f-c6150fd852b3.png" alt="maker page mobile screenshot" style="width:30%;"/>
+  <br/><img src="https://github.com/injilee/Pet-license-maker/issues/4#issue-1510911180.png" alt="maker page mobile screenshot" style="width:30%;"/>
 
 ---
 
 ## 5. Demo Link
 
-https://pet-licese-maker.netlify.app/
+https://pet-license-maker.netlify.app
 
 <br/>
 
@@ -263,8 +257,7 @@ https://pet-licese-maker.netlify.app/
 - [x] Firebase (Authentication, Realtime Database)
 - [x] Cloudinary (upload, delete)
 - [x] Google OAuth
-- [x] dom to image
-- [x] file saver
+- [x] html2canvas
 - [x] postCSS
 - [x] Postman
 
