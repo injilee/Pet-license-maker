@@ -42,34 +42,51 @@ class AuthService {
   emailAndPasswordLogin(email, password) {
     const auth = this.firebaseAuth;
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        alert('회원 가입 완료');
-        return user;
+      .then(() => {
+        alert('회원가입이 완료되었습니다.');
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            alert('이미 가입된 이메일입니다.');
+            break;
+
+          default:
+            console.log(error);
+        }
+      });
   }
 
   emailSignIn(email, password) {
     const auth = this.firebaseAuth;
-    signInWithEmailAndPassword(auth, email, password).catch((error) => {
-      switch (error.code) {
-        case 'auth/missing-email':
-          alert('이메일 입력해주세요');
-          break;
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => alert('로그인 되었습니다.'))
+      .catch((error) => {
+        switch (error.code) {
+          case 'auth/missing-email':
+            alert('이메일 입력해주세요');
+            break;
 
-        case 'auth/wrong-password':
-          alert('비밀번호를 확인해주세요');
-          break;
+          case 'auth/wrong-password':
+            alert('비밀번호를 확인해주세요');
+            break;
 
-        case 'auth/internal-error':
-          alert('비밀번호를 입력해주세요');
-          break;
+          case 'auth/internal-error':
+            alert('비밀번호를 입력해주세요');
+            break;
 
-        default:
-          console.log(error);
-      }
-    });
+          case 'auth/user-not-found':
+            alert('가입되지 않은 이메일입니다.');
+            break;
+
+          case 'auth/email-already-in-use':
+            alert('이미 가입된 이메일입니다.');
+            break;
+
+          default:
+            console.log(error);
+        }
+      });
   }
 
   onAuthChanged(onUserChanged) {

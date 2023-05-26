@@ -74,19 +74,26 @@
   text-decoration: underline;
 }
 
-.email_loginBtn {
+.btn_warp {
+  display: flex;
+  justify-content: center;
+}
+
+.email_loginBtn,
+.email_signInBtn {
   width: 6.5em;
   height: 38px;
   color: black;
   font-size: 1rem;
-  margin: 0 auto;
+  margin: 0 0.3125rem;
   background-color: none;
   cursor: pointer;
   border: 1px solid makerShadow;
   border-radius: 6px;
 }
 
-.email_loginBtn:hover {
+.email_loginBtn:hover,
+.email_signInBtn:hover {
   color: makerWhite;
   background-color: #2956eb;
 }

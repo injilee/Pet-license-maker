@@ -51,6 +51,11 @@ const EmailLogin = ({ authService }) => {
     authService.emailAndPasswordLogin(userEmail, userPassword);
   };
 
+  const onLogin = (e) => {
+    e.preventDefault();
+    authService.emailSignIn(userEmail, userPassword);
+  };
+
   return (
     <>
       <form className={styles.email_form}>
@@ -104,13 +109,22 @@ const EmailLogin = ({ authService }) => {
             문자, 숫자, 특수문자(&#42;&#91;&#64;&#36;&#33;&#35;&#37;&#38;)를
             포함한 8자리 이상의 비밀번호를 입력해주세요.
           </span>
-          <button
-            type="submit"
-            className={styles.email_loginBtn}
-            onClick={signIn}
-          >
-            login
-          </button>
+          <div className={styles.btn_warp}>
+            <button
+              type="submit"
+              className={styles.email_signInBtn}
+              onClick={signIn}
+            >
+              회원가입
+            </button>
+            <button
+              type="submit"
+              className={styles.email_loginBtn}
+              onClick={onLogin}
+            >
+              login
+            </button>
+          </div>
         </div>
       </form>
     </>
