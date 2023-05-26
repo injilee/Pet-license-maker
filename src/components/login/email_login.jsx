@@ -48,7 +48,7 @@ const EmailLogin = ({ authService }) => {
 
   const signIn = (e) => {
     e.preventDefault();
-    authService.emailSignIn(userEmail, userPassword);
+    authService.emailAndPasswordLogin(userEmail, userPassword);
   };
 
   return (

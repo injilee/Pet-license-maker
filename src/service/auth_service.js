@@ -44,6 +44,7 @@ class AuthService {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        alert('회원 가입 완료');
         return user;
       })
       .catch((error) => console.log(error));
